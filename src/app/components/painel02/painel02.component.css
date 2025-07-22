@@ -1,0 +1,263 @@
+/* =========================================================
+ * Painel02 – Intro + Fundadores (retratos grandes em linha)
+ * ======================================================= */
+
+/* ----- Host reset ----- */
+:host {
+    display: block;
+    width: 100%;
+    color: #000;
+    font-family: 'Inter', 'Roboto', sans-serif;
+    line-height: 1.35;
+}
+
+:host * {
+    box-sizing: border-box;
+}
+
+/* ----- Wrapper geral ----- */
+.painel02 {
+    width: 100%;
+    background: #fff;
+    overflow-x: hidden;
+    padding-bottom: 10rem;
+}
+
+/* =========================================================
+ * INTRO
+ * ======================================================= */
+.p02-intro {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-top: 16vh;
+    padding-bottom: 12vh;
+    padding-left: clamp(1.5rem, 6vw, 8rem);
+    padding-right: clamp(1.5rem, 6vw, 8rem);
+    text-align: left;
+}
+
+.p02-headline {
+    margin: 0 0 2rem;
+    font-size: clamp(3.25rem, 8vw, 8rem);
+    font-weight: 300;
+    line-height: 1.02;
+}
+
+.p02-headline-primary {
+    color: #aab2ff;
+    font-weight: 400;
+}
+
+.p02-blurb {
+    max-width: 70ch;
+    margin: 0;
+    font-size: clamp(1.25rem, 2.2vw, 1.875rem);
+    font-weight: 300;
+    color: #1a1a1a;
+}
+
+/* =========================================================
+ * FOUNDERS WRAPPER
+ * ======================================================= */
+.p02-founders-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-top: 12vh;
+    padding-left: clamp(1.5rem, 6vw, 8rem);
+    padding-right: clamp(1.5rem, 6vw, 8rem);
+    text-align: left;
+}
+
+.p02-founders-title {
+    margin: 0 0 4rem;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 400;
+    color: #111;
+}
+
+/* =========================================================
+ * FOUNDERS LIST – 3 retratos grandes em linha (desktop)
+ * ======================================================= */
+.p02-founders-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: clamp(2rem, 4vw, 4rem);
+    flex-wrap: nowrap;
+    /* mantém 3 em linha até quebrar por breakpoint */
+}
+
+/* Card grande (portrait) ---------------------------------- */
+.p02-founder-card {
+    flex: 1 1 32%;
+    /* espaço proporcional */
+    max-width: 480px;
+    /* limite p/ telas enormes; aumente se quiser ainda maior */
+    opacity: 1;
+    /* será sobrescrito em .reveal-target */
+    transform: none;
+    transition: opacity 1.1s cubic-bezier(.22, 1, .36, 1),
+        transform 1.1s cubic-bezier(.22, 1, .36, 1),
+        filter 1.1s ease;
+    will-change: transform, opacity, filter;
+}
+
+/* Figura retrato */
+.p02-founder-figure {
+    position: relative;
+    width: 100%;
+    margin: 0;
+
+    /* *** Retrato alto *** */
+    aspect-ratio: 3 / 4;
+    /* largura:altura -> altura maior que largura */
+
+    overflow: hidden;
+    border-radius: 16px;
+    background: #e9e9ee;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, .12);
+    transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.p02-founder-figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    /* mostra rosto/cabeça */
+    display: block;
+    transform: scale(1.02);
+    transition: transform .4s ease;
+}
+
+.p02-founder-figure:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 18px 60px rgba(0, 0, 0, .20);
+}
+
+.p02-founder-figure:hover img {
+    transform: scale(1.08);
+}
+
+.p02-founder-name {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    margin: 0;
+    padding: .35em .75em;
+    font-size: clamp(1rem, 1.8vw, 1.5rem);
+    font-weight: 600;
+    color: #000;
+    background: rgba(255, 255, 255, .88);
+    border-radius: 4px;
+    line-height: 1.1;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+/* =========================================================
+ * REVEAL ANIMAÇÃO (IntersectionObserver adiciona .is-visible)
+ * ======================================================= */
+
+/* estado inicial: invisível */
+.reveal-target {
+    opacity: 0;
+    transform: translateY(80px) scale(.95);
+    filter: blur(10px);
+}
+
+/* quando visível -> anima */
+.reveal-target.is-visible {
+    opacity: 1;
+    transform: none;
+    filter: none;
+}
+
+/* tempos custom p/ intro & wrapper (mais lentos) */
+.p02-intro.reveal-target {
+    transition: opacity 1.4s cubic-bezier(.22, 1, .36, 1),
+        transform 1.4s cubic-bezier(.22, 1, .36, 1),
+        filter 1.4s ease;
+}
+
+.p02-founders-wrapper.reveal-target {
+    transition: opacity 1.4s cubic-bezier(.22, 1, .36, 1),
+        transform 1.4s cubic-bezier(.22, 1, .36, 1),
+        filter 1.4s ease;
+}
+
+/* cards usam transição definida em .p02-founder-card (1.1s) */
+
+/* =========================================================
+ * BREAKPOINTS
+ * ======================================================= */
+
+/* ----- 2 colunas (tablets / telas médias) ----- */
+@media (max-width: 900px) {
+    .p02-founders-list {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .p02-founder-card {
+        flex: 1 1 calc(50% - 2rem);
+        max-width: 420px;
+    }
+}
+
+/* ----- 1 coluna (mobile) ----- */
+@media (max-width: 600px) {
+    .p02-intro {
+        padding-top: 8rem;
+        padding-bottom: 4rem;
+    }
+
+    .p02-founders-wrapper {
+        padding-top: 4rem;
+    }
+
+    .p02-founders-title {
+        margin-bottom: 2.5rem;
+    }
+
+    .p02-founders-list {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 2rem;
+    }
+
+    .p02-founder-card {
+        flex: none;
+        width: 100%;
+        max-width: none;
+    }
+
+    .p02-founder-name {
+        top: .75rem;
+        left: .75rem;
+        font-size: 1.125rem;
+    }
+}
+
+/* =========================================================
+ * Reduced motion (acessibilidade)
+ * ======================================================= */
+@media (prefers-reduced-motion: reduce) {
+
+    .reveal-target,
+    .reveal-target.is-visible,
+    .p02-founder-figure,
+    .p02-founder-figure:hover,
+    .p02-founder-figure img,
+    .p02-founder-figure:hover img {
+        transition: none !important;
+        transform: none !important;
+        filter: none !important;
+        opacity: 1 !important;
+    }
+}

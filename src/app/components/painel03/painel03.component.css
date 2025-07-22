@@ -1,0 +1,172 @@
+/* =========================================================
+ * Painel03 – Texto animado (6 linhas) + arte à direita
+ * ======================================================= */
+
+:host {
+    display: block;
+    width: 100%;
+}
+
+:host * {
+    box-sizing: border-box;
+}
+
+/* ----- Seção (fundo cinza claro) ----- */
+.p03-section {
+    width: 100%;
+    min-height: 80vh;
+    background: #e9e9ee;
+    /* cinza claro da referência */
+    color: #000;
+    overflow: hidden;
+    /* esconde linhas enquanto entram */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 6vh;
+    padding-bottom: 6vh;
+}
+
+/* ----- Container interno: duas colunas ----- */
+.p03-inner {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding-left: clamp(1.5rem, 6vw, 8rem);
+    padding-right: clamp(1.5rem, 6vw, 8rem);
+    display: grid;
+    grid-template-columns: 1fr minmax(260px, 40%);
+    gap: 2rem;
+    align-items: center;
+}
+
+/* ----- Bloco de texto ----- */
+.p03-text-block {
+    margin: 0;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 1.05;
+    max-width: 1000px;
+    /* quebra similar à ref */
+    position: relative;
+}
+
+/* cada linha em bloco -> permite animar separadamente */
+.p03-line {
+    display: block;
+    transform: translateX(-30%);
+    opacity: 0;
+    filter: blur(4px);
+    transition:
+        transform 1.1s cubic-bezier(.22, 1, .36, 1),
+        opacity 1.1s ease,
+        filter 1.1s ease;
+    will-change: transform, opacity, filter;
+    padding-right: .2em;
+    /* espaço p/ evitar colar */
+}
+
+/* linha azul (última) */
+.p03-line--accent {
+    color: #aab2ff;
+    font-weight: 400;
+}
+
+/* estado visível */
+.p03-line.is-visible {
+    transform: translateX(0);
+    opacity: 1;
+    filter: none;
+}
+
+/* marcador de nota ^1 */
+.p03-footnote-marker {
+    font-size: .35em;
+    margin-left: .25em;
+    vertical-align: super;
+    font-weight: 400;
+    color: #000;
+}
+
+/* ----- Arte lateral ----- */
+.p03-art-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.p03-art {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    /* se quiser animação de fade/scale no art também: */
+    opacity: 0;
+    transform: scale(.9);
+    transition: opacity 1.25s ease, transform 1.25s cubic-bezier(.22, 1, .36, 1);
+}
+
+/* quando qualquer linha visível -> mostra arte
+   (usamos seletor :has se suportado; fallback com JS opcional) */
+@supports(selector(:has(*))) {
+    .p03-inner:has(.p03-line.is-visible) .p03-art {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* fallback: sempre visível se :has não suportado */
+@supports not (selector(:has(*))) {
+    .p03-art {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* =========================================================
+ * Responsivo
+ * ======================================================= */
+@media (max-width: 768px) {
+    .p03-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: left;
+    }
+
+    .p03-text-block {
+        max-width: none;
+        font-size: clamp(2.25rem, 9vw, 3.75rem);
+    }
+
+    .p03-art-wrapper {
+        justify-content: center;
+    }
+
+    .p03-art {
+        max-width: 60%;
+    }
+}
+
+@media (max-width: 480px) {
+    .p03-art {
+        max-width: 70%;
+    }
+}
+
+/* =========================================================
+ * Reduced Motion
+ * ======================================================= */
+@media (prefers-reduced-motion: reduce) {
+
+    .p03-line,
+    .p03-line.is-visible,
+    .p03-art {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+        filter: none !important;
+    }
+}
+
+

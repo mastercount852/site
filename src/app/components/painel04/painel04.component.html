@@ -1,0 +1,45 @@
+<main class="p04">
+
+    <!-- INTRO -->
+    <section class="p04-intro">
+        <h2 class="p04-heading">
+            {{ headingPre }}
+            <span class="p04-heading-accent">{{ headingAccent }}</span>
+            {{ headingPost }}
+        </h2>
+        <p class="p04-copy">{{ copy }}</p>
+    </section>
+
+    <!-- CARROSSEL -->
+    <section class="p04-carousel">
+
+        <!-- Linha 1 (esquerda →) -->
+        <div class="p04-marquee-row p04-marquee-row--left">
+            <ul #row1Track class="p04-marquee-track">
+                <li class="p04-logo-circle" *ngFor="let logo of row1Loop; trackBy: trackByIdx">
+                    <ng-container *ngIf="logo.img; else txt1">
+                        <img [src]="logo.img" [alt]="logo.alt||logo.label">
+                    </ng-container>
+                    <ng-template #txt1>
+                        <span class="p04-logo-label">{{ logo.label }}</span>
+                    </ng-template>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Linha 2 (direita ←) -->
+        <div class="p04-marquee-row p04-marquee-row--right">
+            <ul #row2Track class="p04-marquee-track">
+                <li class="p04-logo-circle" *ngFor="let logo of row2Loop; trackBy: trackByIdx">
+                    <ng-container *ngIf="logo.img; else txt2">
+                        <img [src]="logo.img" [alt]="logo.alt||logo.label">
+                    </ng-container>
+                    <ng-template #txt2>
+                        <span class="p04-logo-label">{{ logo.label }}</span>
+                    </ng-template>
+                </li>
+            </ul>
+        </div>
+
+    </section>
+</main>

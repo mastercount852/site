@@ -1,0 +1,28 @@
+<main class="painel01">
+    <!-- HERO =================================================== -->
+    <section #heroSection class="painel01-hero" aria-label="Hero mensagem principal">
+        <h1 class="hero-title">
+            <span *ngFor="let line of heroLines; let i = index" class="hero-line" [class.visible]="heroVisible[i]"
+                [style.transitionDelay]="(i * 0.25)+'s'">
+                {{ line }}
+            </span>
+        </h1>
+    </section>
+
+    <!-- SCROLLY ESFERAS ======================================== -->
+    <section #scrollyRoot class="painel01-scrolly" aria-label="Sequência de esferas informativas">
+        <div class="scrolly-sticky" [ngClass]="'stage-'+stage">
+            <div class="scrolly-circles">
+                <div class="scrolly-circle">
+                    <p>We meet technologists<br>at core moments<br>of discovery.</p>
+                </div>
+                <div class="scrolly-circle">
+                    <p>We partner with<br>them to get their<br>innovations to market.</p>
+                </div>
+                <div class="scrolly-circle scrolly-circle--accent">
+                    <p>And we show the<br>world how to follow<br>them to the future<br>they’ve made possible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

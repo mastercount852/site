@@ -1,0 +1,31 @@
+<main class="painel02">
+
+    <!-- INTRO ================================================= -->
+    <section class="p02-intro reveal-target" #revealEl>
+        <h2 class="p02-headline">
+            <span class="p02-headline-primary">{{ headlinePrimary }}</span>
+            {{ ' ' + headlineRemainder }}
+        </h2>
+        <p class="p02-blurb">
+            {{ blurb }}
+        </p>
+    </section>
+
+    <!-- FOUNDERS ============================================== -->
+    <section class="p02-founders-wrapper reveal-target" #revealEl>
+        <h3 class="p02-founders-title">
+            {{ foundersTitle }}
+        </h3>
+
+        <ul class="p02-founders-list">
+            <li class="p02-founder-card reveal-target" *ngFor="let f of founders; let i = index" #revealEl
+                [style.transitionDelay]="(i * 0.18) + 's'"><!-- atraso maior p/ stagger -->
+                <figure class="p02-founder-figure">
+                    <img [src]="f.img" [alt]="f.alt" loading="lazy">
+                    <figcaption class="p02-founder-name">{{ f.name }}</figcaption>
+                </figure>
+            </li>
+        </ul>
+    </section>
+
+</main>

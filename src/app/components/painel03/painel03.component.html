@@ -1,0 +1,18 @@
+<section #root class="p03-section">
+    <div class="p03-inner">
+
+        <!-- BLOCO DE TEXTO -->
+        <h2 class="p03-text-block">
+            <span *ngFor="let ln of lines; let i = index" class="p03-line" [class.p03-line--accent]="i === 5"
+                [class.is-visible]="lineVisible[i]" [style.transitionDelay]="(i * 0.25)+'s'">
+                {{ ln }}
+            </span>
+        </h2>
+
+        <!-- ARTE DECORATIVA (troque o src pela sua imagem) -->
+        <div class="p03-art-wrapper">
+            <img src="assets/img/painel03-dots.svg" alt="" aria-hidden="true" class="p03-art">
+        </div>
+
+    </div>
+</section>
