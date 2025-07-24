@@ -2,10 +2,17 @@
     <!-- HERO =================================================== -->
     <section #heroSection class="painel01-hero" aria-label="Hero mensagem principal">
         <h1 class="hero-title">
-            <span *ngFor="let line of heroLines; let i = index" class="hero-line" [class.visible]="heroVisible[i]"
-                [style.transitionDelay]="(i * 0.25)+'s'">
-                {{ line }}
-            </span>
+            <p class="hero-line" [class.visible]="heroVisible[0]" [style.transitionDelay]="'0s'">
+                Eficiência que paga dividendos
+            </p>
+            <p class="hero-line" [class.visible]="heroVisible[1]" [style.transitionDelay]="'0.25s'">
+                A <span>Koan Capital</span> é uma corretora internacional criada para investidores que buscam
+                excelência operacional e custos otimizados.
+            </p>
+            <p class="hero-line" [class.visible]="heroVisible[2]" [style.transitionDelay]="'0.5s'">
+                Conectamos você aos mercados globais com tecnologia de ponta, spreads reduzidos e a segurança que apenas
+                uma operação séria pode oferecer.
+            </p>
         </h1>
     </section>
 
@@ -14,13 +21,13 @@
         <div class="scrolly-sticky" [ngClass]="'stage-'+stage">
             <div class="scrolly-circles">
                 <div class="scrolly-circle">
-                    <p>We meet technologists<br>at core moments<br>of discovery.</p>
+                    <p>Nós da <strong>Koan Capital</strong>, conectamos investidores inteligentes a mercados sem fronteiras.</p>
                 </div>
                 <div class="scrolly-circle">
-                    <p>We partner with<br>them to get their<br>innovations to market.</p>
+                    <p>Oferecemos acesso privilegiado aos principais ativos mundiais.</p>
                 </div>
                 <div class="scrolly-circle scrolly-circle--accent">
-                    <p>And we show the<br>world how to follow<br>them to the future<br>they’ve made possible.</p>
+                    <p>E mostramos como sua estratégia pode gerar resultados consistentes.</p>
                 </div>
             </div>
         </div>

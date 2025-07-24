@@ -3,29 +3,60 @@
     <!-- INTRO ================================================= -->
     <section class="p02-intro reveal-target" #revealEl>
         <h2 class="p02-headline">
-            <span class="p02-headline-primary">{{ headlinePrimary }}</span>
-            {{ ' ' + headlineRemainder }}
+            Acesso total aos mercados que movem o mundo.
         </h2>
         <p class="p02-blurb">
-            {{ blurb }}
+            Comece agora a operar nos mercados globais em uma plataforma criada para todos os perfis: desde iniciantes
+            sem experiência até profissionais já que vivem do mercado.
         </p>
     </section>
 
     <!-- FOUNDERS ============================================== -->
     <section class="p02-founders-wrapper reveal-target" #revealEl>
-        <h3 class="p02-founders-title">
-            {{ foundersTitle }}
-        </h3>
 
-        <ul class="p02-founders-list">
-            <li class="p02-founder-card reveal-target" *ngFor="let f of founders; let i = index" #revealEl
-                [style.transitionDelay]="(i * 0.18) + 's'"><!-- atraso maior p/ stagger -->
-                <figure class="p02-founder-figure">
-                    <img [src]="f.img" [alt]="f.alt" loading="lazy">
-                    <figcaption class="p02-founder-name">{{ f.name }}</figcaption>
-                </figure>
+
+        <ul class="p02-offerings-list">
+            <li class="p02-offering-card reveal-target" #revealEl [style.transitionDelay]="'0s'">
+                <div class="offering-header">
+                    <img src="https://i.imgur.com/aGxfXTx.png" alt="Ícone Forex" loading="lazy">
+                </div>
+                <div class="offering-body">
+                    <h4>FOREX</h4>
+                    <ul>
+                        <li>60+ pares de moedas</li>
+                        <li>Spreads a partir de 0.0 pips</li>
+                        <li>24/5 disponibilidade</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="p02-offering-card reveal-target" #revealEl [style.transitionDelay]="'0.18s'">
+                <div class="offering-header">
+                    <img src="https://i.imgur.com/7ycC3cT.png" alt="Ícone Ações" loading="lazy">
+                </div>
+                <div class="offering-body">
+                    <h4>AÇÕES</h4>
+                    <ul>
+                        <li>Principais bolsas mundiais</li>
+                        <li>Execução institucional</li>
+                        <li>Informações em tempo real</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="p02-offering-card reveal-target" #revealEl [style.transitionDelay]="'0.36s'">
+                <div class="offering-header">
+                    <img src="https://i.imgur.com/1O0d8xo.png" alt="Ícone Criptoativos" loading="lazy">
+                </div>
+                <div class="offering-body">
+                    <h4>CRIPTOATIVOS</h4>
+                    <ul>
+                        <li>Bitcoin, Ethereum, Altcoins</li>
+                        <li>Regulamentação completa</li>
+                        <li>Segurança institucional</li>
+                    </ul>
+                </div>
             </li>
         </ul>
+
     </section>
 
 </main>

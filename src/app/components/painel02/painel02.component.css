@@ -38,9 +38,10 @@
 
 .p02-headline {
     margin: 0 0 2rem;
-    font-size: clamp(3.25rem, 8vw, 8rem);
-    font-weight: 300;
+    font-size: 40px;
+    font-weight: bolder;
     line-height: 1.02;
+
 }
 
 .p02-headline-primary {
@@ -51,7 +52,7 @@
 .p02-blurb {
     max-width: 70ch;
     margin: 0;
-    font-size: clamp(1.25rem, 2.2vw, 1.875rem);
+    font-size: 25px;
     font-weight: 300;
     color: #1a1a1a;
 }
@@ -261,3 +262,66 @@
         opacity: 1 !important;
     }
 }
+
+/* LISTA DE OFERTAS */
+.p02-offerings-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: clamp(2rem, 4vw, 4rem);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* CARD */
+.p02-offering-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    max-width: 320px;
+    flex: 1 1 280px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* CABEÇALHO PRETO COM ÍCONE */
+.offering-header {
+    background: #000;
+    padding: 2rem 1rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.offering-header img {
+    max-width: 80%;
+    height: auto;
+}
+
+/* CORPO BRANCO */
+.offering-body {
+    padding: 1.5rem 1rem 2rem;
+    text-align: center;
+}
+
+.offering-body h4 {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.offering-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.offering-body ul li {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Mantenha sua lógica de .reveal-target e .is-visible conforme já está */

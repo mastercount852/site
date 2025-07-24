@@ -1,6 +1,5 @@
 import {
   Component,
-  OnInit,
   AfterViewInit,
   OnDestroy,
   ElementRef,
@@ -13,19 +12,10 @@ import {
   templateUrl: './painel03.component.html',
   styleUrls: ['./painel03.component.css']
 })
-export class Painel03Component implements OnInit, AfterViewInit, OnDestroy {
-
-  /* Texto dividido em 6 linhas (ajuste como quiser) */
-  lines: string[] = [
-    'Laude Ventures is',
-    'funded by future-focused',
-    'institutional investors,',
-    'iconic technical founders,',
-    'and 51 of the world’s leading computer scientists.'
-  ];
+export class Painel03Component implements AfterViewInit, OnDestroy {
 
   /** flags de visibilidade/anim */
-  lineVisible: boolean[] = [false, false, false, false, false, false];
+  lineVisible: boolean[] = [false, false, false, false, false];
 
   /** atraso base entre linhas (ms) */
   private readonly LINE_STAGGER = 250;
@@ -44,8 +34,6 @@ export class Painel03Component implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(private zone: NgZone) { }
 
-  ngOnInit(): void { }
-
   ngAfterViewInit(): void {
     this.initObserver();
   }
@@ -55,15 +43,11 @@ export class Painel03Component implements OnInit, AfterViewInit, OnDestroy {
     this.clearTimers();
   }
 
-  /* -------------------------------------------------------
-   * IO: quando seção entra no viewport -> (re)anima
-   * quando sai -> reseta (para poder reanimar depois)
-   * ----------------------------------------------------- */
   private initObserver(): void {
     this.zone.runOutsideAngular(() => {
       this.io = new IntersectionObserver(
         entries => {
-          entries.forEach(entry => {
+          for (const entry of entries) {
             if (entry.target === this.rootEl.nativeElement) {
               if (entry.isIntersecting) {
                 this.zone.run(() => this.playIntro());
@@ -71,11 +55,11 @@ export class Painel03Component implements OnInit, AfterViewInit, OnDestroy {
                 this.zone.run(() => this.resetIntro());
               }
             }
-          });
+          }
         },
         {
           root: null,
-          rootMargin: '0px 0px -20% 0px', // inicia quando 80% entrou
+          rootMargin: '0px 0px -20% 0px',
           threshold: 0
         }
       );
@@ -83,27 +67,24 @@ export class Painel03Component implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
-  /* dispara sequência */
   private playIntro(): void {
-    this.resetIntro(false); // mantém timers limpos mas não desconecta IO
-    this.lines.forEach((_, i) => {
+    this.resetIntro(false);
+    for (let i = 0; i < this.lineVisible.length; i++) {
       const id = window.setTimeout(() => {
         this.lineVisible[i] = true;
       }, this.INTRO_DELAY + i * this.LINE_STAGGER);
       this.timers.push(id);
-    });
+    }
   }
 
-  /* reseta flags; se withTimers=true (default) limpa timeouts */
   private resetIntro(clearTimers: boolean = true): void {
     if (clearTimers) this.clearTimers();
-    for (let i = 0; i < this.lineVisible.length; i++) {
-      this.lineVisible[i] = false;
-    }
+    this.lineVisible.fill(false);
   }
 
   private clearTimers(): void {
     this.timers.forEach(id => clearTimeout(id));
     this.timers = [];
   }
+
 }

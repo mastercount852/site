@@ -3,13 +3,29 @@
 
         <!-- BLOCO DE TEXTO -->
         <h2 class="p03-text-block">
-            <span *ngFor="let ln of lines; let i = index" class="p03-line" [class.p03-line--accent]="i === 5"
-                [class.is-visible]="lineVisible[i]" [style.transitionDelay]="(i * 0.25)+'s'">
-                {{ ln }}
+            <span class="p03-line" [class.p03-line--accent]="5 === 5" [class.is-visible]="lineVisible[0]"
+                [style.transitionDelay]="'0.25s'">
+                A Koan Capital é
+            </span>
+            <span class="p03-line" [class.p03-line--accent]="5 === 5" [class.is-visible]="lineVisible[1]"
+                [style.transitionDelay]="'0.50s'">
+                autorizada para operações
+            </span>
+            <span class="p03-line" [class.p03-line--accent]="5 === 5" [class.is-visible]="lineVisible[2]"
+                [style.transitionDelay]="'0.75s'">
+                em todos os mercados,
+            </span>
+            <span class="p03-line" [class.p03-line--accent]="5 === 5" [class.is-visible]="lineVisible[3]"
+                [style.transitionDelay]="'1.00s'">
+                com 4 yipos de conta e taxa zero
+            </span>
+            <span class="p03-line" [class.p03-line--accent]="5 === 5" [class.is-visible]="lineVisible[4]"
+                [style.transitionDelay]="'1.25s'">
+                para contas premium.
             </span>
         </h2>
 
-        <!-- ARTE DECORATIVA (troque o src pela sua imagem) -->
+        <!-- ARTE DECORATIVA -->
         <div class="p03-art-wrapper">
             <img src="assets/img/painel03-dots.svg" alt="" aria-hidden="true" class="p03-art">
         </div>
