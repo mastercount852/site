@@ -27,21 +27,40 @@ export class Painel04Component implements OnInit, AfterViewInit, OnDestroy {
 
   /* ---------- Logos base ---------- */
   private baseRow1: LogoItem[] = [
-    { label: 'Arcade', img: 'assets/img/logos/arcade.svg', alt: 'Arcade' },
-    { label: 'LMArena', img: 'assets/img/logos/lmarena.svg', alt: 'LMArena' },
-    { label: 'TabsData', img: 'assets/img/logos/tabsdata.svg', alt: 'TabsData' },
-    { label: 'Foundry', img: 'assets/img/logos/foundry.svg', alt: 'Foundry' },
-    { label: 'Prompt', img: 'assets/img/logos/prompt.svg', alt: 'Prompt' },
-    { label: 'SigIQ.ai', img: 'assets/img/logos/sigiq.svg', alt: 'SigIQ.ai' },
-    { label: 'Arcadia', img: 'assets/img/logos/arcadia.svg', alt: 'Arcadia' }
+    { label: '', img: 'https://i.imgur.com/f1WHwn1.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/GijFFt7.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/7sXrOLw.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/I6AXM25.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/YCoJE06.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/AsZNgiS.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/yA8eSd2.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/5mI7jQc.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/idnkzog.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/x7L3sej.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/qPrfKtd.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/pyyjeZz.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/dqJTM0x.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/f5LiayD.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/OXThSdD.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/0IFwv0s.png', alt: '' }
   ];
   private baseRow2: LogoItem[] = [
-    { label: 'Normal', img: 'assets/img/logos/normal.svg', alt: 'Normal' },
-    { label: 'Linea', img: 'assets/img/logos/linea.svg', alt: 'Linea' },
-    { label: 'Perplexity', img: 'assets/img/logos/perplexity.svg', alt: 'Perplexity' },
-    { label: 'Clairvoyant', img: 'assets/img/logos/clairvoyant.svg', alt: 'Clairvoyant' },
-    { label: 'Eventual', img: 'assets/img/logos/eventual.svg', alt: 'Eventual' },
-    { label: 'Narada', img: 'assets/img/logos/narada.svg', alt: 'Narada' }
+    { label: '', img: 'https://i.imgur.com/rdp5O1L.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/fQq5YNb.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/HM9Axz9.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/jmMNsPS.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/m6iqOBf.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/idnkzog.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/Y6F4FUa.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/LVJUE4r.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/SlTRnYD.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/VjoNvGQ.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/AswZ4Ew.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/Wq7HVze.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/FAUMTC9.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/KlQN7nF.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/wZS7AM1.png', alt: '' },
+    { label: '', img: 'https://i.imgur.com/FXOo5S9.png', alt: '' }
   ];
 
   /** duplicados para montagem inicial (2×) */
@@ -143,10 +162,10 @@ export class Painel04Component implements OnInit, AfterViewInit, OnDestroy {
     else this.timer2 = id;
 
     // pausa/resume no hover
-    const parent = trackEl.parentElement!;
+/*     const parent = trackEl.parentElement!;
     parent.addEventListener('mouseenter', () => clearInterval(
       direction === 'left' ? this.timer1 : this.timer2
-    ));
+    )); */
     parent.addEventListener('mouseleave', () => {
       const fresh = setInterval(slide, interval);
       if (direction === 'left') this.timer1 = fresh;

@@ -45,7 +45,6 @@
 .p03-text-block {
     margin: 0;
     font-weight: 300;
-    font-size: 40px;
     line-height: 1.05;
     max-width: 1000px;
     /* quebra similar à ref */
@@ -64,7 +63,13 @@
         filter 1.1s ease;
     will-change: transform, opacity, filter;
     padding-right: .2em;
-    /* espaço p/ evitar colar */
+    font-size: 60px;
+    color: #a5a5a5 !important;
+}
+
+.p03-line .sub {
+    font-weight: bolder;
+    color: #ffffff;
 }
 
 /* linha azul (última) */
@@ -169,5 +174,3 @@
         filter: none !important;
     }
 }
-
-
