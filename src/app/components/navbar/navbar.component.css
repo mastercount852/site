@@ -1,0 +1,177 @@
+.leiaut {
+    display: flex;
+    justify-content: center;
+    background: #000;
+}
+
+/* Bar principal */
+.navbar {
+    width: 80%;
+    background: linear-gradient(180deg, #333 0%, #000 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border-radius: 0 0 24px 24px;
+    padding: 0.75rem 1.5rem;
+    position: relative;
+}
+
+/* Lista */
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+/* Itens e links */
+.nav-item a {
+    color: #fff;
+    text-decoration: none;
+    font: 500 1rem 'Inter', sans-serif;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.nav-item a:hover {
+    color: #c7c7c7;
+}
+
+.login-item {
+    margin-left: auto;
+}
+
+/* Hamburger toggle (desktop: escondido) */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 1rem;
+}
+
+.nav-toggle span {
+    display: block;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform .3s ease, opacity .3s ease;
+}
+
+/* animação X */
+.nav-toggle span.open:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle span.open:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle span.open:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .navbar {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border-radius: 0 0 12px 12px;
+    }
+
+    /* mostra hamburger e esconde lista */
+    .nav-toggle {
+        display: flex;
+        position: absolute;
+        top: 50%;
+        left: 1rem;
+        transform: translateY(-50%);
+    }
+
+    .nav-list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: linear-gradient(180deg, #333 0%, #000 100%);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+        gap: 1rem;
+        border-radius: 0 0 12px 12px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .3s ease;
+    }
+
+    .nav-list.open {
+        max-height: 500px;
+        /* suficiente para todos os links */
+    }
+
+    .nav-item {
+        width: 100%;
+    }
+
+    .login-item {
+        margin-left: 0;
+    }
+}
+
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .navbar {
+        width: 100%;
+        padding: 20px 1rem;
+        border-radius: 0 0 12px 12px;
+    }
+
+    /* botão hamburger */
+    .nav-toggle {
+        display: flex;
+        position: absolute;
+        top: 50%;
+        left: 1rem;
+        transform: translateY(-50%);
+    }
+
+    /* lista escondida por padrão */
+    .nav-list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: linear-gradient(180deg, #333 0%, #000 100%);
+        flex-direction: column;
+        padding: 1rem 0;
+        border-radius: 0 0 12px 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        z-index: 10;
+    }
+
+    /* ao abrir, mostra como coluna */
+    .nav-list.open {
+        display: flex;
+    }
+
+    .nav-item {
+        width: 100%;
+    }
+
+    .nav-item a {
+        display: block;
+        padding: 0.75rem 1.5rem;
+    }
+
+    .login-item {
+        margin-left: 0;
+    }
+}

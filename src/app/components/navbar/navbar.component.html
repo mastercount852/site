@@ -1,0 +1,24 @@
+<div class="leiaut">
+    <nav class="navbar">
+        <!-- botão hamburger -->
+        <button class="nav-toggle" (click)="toggleMenu()" aria-label="Menu">
+            <span [class.open]="isMenuOpen"></span>
+            <span [class.open]="isMenuOpen"></span>
+            <span [class.open]="isMenuOpen"></span>
+        </button>
+
+        <!-- lista de links -->
+        <ul class="nav-list" [class.open]="isMenuOpen">
+            <li class="nav-item"><a (click)="scrollToElement('about')">Sobre Nós</a></li>
+            <li class="nav-item"><a (click)="scrollToElement('active')">Ativos</a></li>
+            <li class="nav-item"><a (click)="scrollToElement('account')">Tipos de Conta</a></li>
+            <li class="nav-item"><a (click)="scrollToElement('steps')">Como Funciona</a></li>
+            <li class="nav-item login-item">
+                <a routerLink="/login">
+                    Login
+                    <span class="logout-icon" aria-hidden="true">&#x21AA;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

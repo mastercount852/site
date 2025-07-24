@@ -1,0 +1,110 @@
+.painel05 {
+  position: relative;
+  padding: 8rem 1rem 4rem;
+  background: url('https://i.imgur.com/oDGrDqa.jpeg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+
+.p05-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.p05-content {
+  position: relative;
+  max-width: 500px;  /* largura fixa para centralizar passo */
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.p05-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.p05-subtitle {
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin-bottom: 3rem;
+}
+
+.p05-steps {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+
+
+/* Cada passo ocupa 100% da largura do container */
+.p05-step {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 1.5rem 0;
+  padding: 0.5rem 0;
+}
+
+/* Ícone posicionado absoluto, sobre a linha */
+
+
+/* Texto inicia sempre à direita da linha */
+.p05-step-info {
+  margin-left: 20px;
+  text-align: left;
+}
+.p05-step-info h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.p05-step-info p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+/* CTA */
+.p05-cta {
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .3s ease;
+}
+.p05-cta:hover {
+  background: #ddd;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .p05-content {
+    max-width: 100%;
+  }
+  .p05-step {
+    flex-direction: row;
+    padding-left: 8%;
+  }
+  .p05-step-icon {
+    position: static;
+    margin-right: 1rem;
+    width: 60px;
+    height: 60px;
+  }
+  .p05-step-info {
+    margin-left: 0;
+    max-width: calc(100% - 60px - 1rem);
+  }
+}
+
+
+

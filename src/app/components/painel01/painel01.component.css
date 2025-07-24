@@ -26,7 +26,7 @@ body {
 /* HERO */
 .painel01-hero {
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     align-items: flex-start;
@@ -49,7 +49,7 @@ body {
     max-width: 80%;
 }
 
-.hero-title p span{
+.hero-title p span {
     font-weight: bolder;
     text-transform: uppercase;
     color: #fff;
@@ -73,14 +73,14 @@ body {
 /* SCROLLY WRAPPER (altura => duração) */
 .painel01-scrolly {
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
 }
 
 .scrolly-sticky {
     position: sticky;
     top: 0;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -181,5 +181,50 @@ body {
     .stage-2 .scrolly-circle,
     .stage-3 .scrolly-circle {
         transform: none;
+    }
+}
+
+
+
+
+/* ==============================
+   Ajustes de responsividade
+   ============================== */
+
+/* Hero menor e texto mais estreito em XS */
+@media (max-width: 600px) {
+    .painel01 {
+        min-height: 100vh;
+        max-height: none !important;
+    }
+
+    /* Reduzimos a altura do Hero para 60vh em vez de 100vh */
+    .painel01-hero {
+        min-height: 60vh;
+        height: 60vh !important;
+        padding-top: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* Texto ocupa a largura toda, mas com max-width menor e fonte menor */
+    .hero-title {
+        font-size: clamp(1.25rem, 7vw, 2rem);
+        max-width: 90%;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-title p {
+        font-size: clamp(0.9rem, 4vw, 1.2rem);
+        max-width: 100%;
+    }
+
+
+    /* Mantemos sua configuração de esferas, mas empurramos-as para baixo */
+    .painel01-scrolly {
+        margin-top: 4rem;
+        padding: 30px 0;
+        min-height: 100vh;
+        max-height: none !important;
     }
 }
