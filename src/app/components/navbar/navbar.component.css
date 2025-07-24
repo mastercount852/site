@@ -42,6 +42,10 @@
     margin-left: auto;
 }
 
+.login-item a {
+    margin-right: 10px;
+}
+
 /* Hamburger toggle (desktop: escondido) */
 .nav-toggle {
     display: none;
