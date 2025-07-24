@@ -20,10 +20,6 @@ interface LogoItem {
 })
 export class Painel04Component implements OnInit, AfterViewInit, OnDestroy {
   /* ---------- Texto ---------- */
-  headingPre = 'From';
-  headingAccent = 'lab';
-  headingPost = 'to Laude';
-  copy = `We’re proud first followers of visionary computer scientists building paradigm-creating companies. Our investments span deeply technical infrastructure and applications, often rooted in research.`;
 
   /* ---------- Logos base ---------- */
   private baseRow1: LogoItem[] = [
