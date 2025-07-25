@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScrollService } from 'src/app/services/scroll-service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
   isMenuOpen = false;
 
-  constructor() { }
+  constructor(private scrollSrv: ScrollService) { }
 
   ngOnInit(): void { }
 
@@ -17,12 +18,10 @@ export class NavbarComponent implements OnInit {
   }
 
   scrollToElement(id: string): void {
-    const el = document.getElementById(id);
-    if (!el) { return; }
-
-    (window as any).skipEsferas = true;
-    (window as any).anchorTarget = el.offsetTop;
-    el.scrollIntoView({ behavior: 'smooth' });
-    this.isMenuOpen = false; // fecha menu após clicar
+    // sinaliza âncora
+    this.scrollSrv.signalAnchorScroll();
+    // rolagem suave
+    document.getElementById(id)
+      ?.scrollIntoView({ behavior: 'smooth' });
   }
 }

@@ -1,12 +1,25 @@
 .leiaut {
-    min-height: 100vh;
+    padding: 50px 0;
     background: #000;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+p {
+    color: #a8a8a8;
+    font-size: 40px;
+    text-align: center;
+    font-weight: 100 !important;
+}
+
+p span {
+    font-weight: 600;
+    color: rgb(255, 255, 255);
 }
 
 img {
     width: 90%;
-    max-width: 500px;
+    max-width: 800px;
 }
