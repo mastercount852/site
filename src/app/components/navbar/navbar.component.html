@@ -9,13 +9,25 @@
 
         <!-- lista de links -->
         <ul class="nav-list" [class.open]="isMenuOpen">
-            <li class="nav-item"><a (click)="scrollToElement('about')">Sobre Nós</a></li>
-            <li class="nav-item"><a (click)="scrollToElement('active')">Ativos</a></li>
-            <li class="nav-item"><a (click)="scrollToElement('account')">Tipos de Conta</a></li>
-            <li class="nav-item"><a (click)="scrollToElement('steps')">Como Funciona</a></li>
+            <li class="nav-item"><a (click)="scrollToElement('about')">{{ "navbar-01" | translate}}</a></li>
+            <li class="nav-item"><a (click)="scrollToElement('active')">{{ "navbar-02" | translate}}</a></li>
+            <li class="nav-item"><a (click)="scrollToElement('account')">{{ "navbar-03" | translate}}</a></li>
+            <li class="nav-item"><a (click)="scrollToElement('steps')">{{ "navbar-04" | translate}}</a></li>
+            <div class="language-selector">
+                <button class="dropdown-toggle" (click)="toggleDropdown()">
+                    <img [src]="getFlag(currentLang)" class="flag-icon" alt="Bandeira" />
+                    {{ getLanguageName(currentLang) }}
+                </button>
+                <ul *ngIf="dropdownOpen" class="dropdown-menu">
+                    <li *ngFor="let lang of languages" (click)="switchLanguage(lang.code)">
+                        <img [src]="lang.flag" class="flag-icon" alt="Bandeira" />
+                        {{ lang.name }}
+                    </li>
+                </ul>
+            </div>
             <li class="nav-item login-item">
-                <a href="https://app.koancapital.com">Login</a>
-                <a href="https://app.koancapital.com/user-registration">Registre</a>
+                <a href="https://app.koancapital.com">{{ "navbar-05" | translate}}</a>
+                <a href="https://app.koancapital.com/user-registration">{{ "navbar-06" | translate}}</a>
             </li>
         </ul>
     </nav>

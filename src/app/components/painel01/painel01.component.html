@@ -4,16 +4,12 @@
     <section #heroSection class="painel01-hero" aria-label="Hero mensagem principal">
         <h1 class="hero-title">
             <p class="hero-line" [class.visible]="heroVisible[0]" [style.transitionDelay]="'0s'">
-                Eficiência que paga dividendos
+                {{ "painel01-01" | translate}}
             </p>
             <p class="hero-line" [class.visible]="heroVisible[1]" [style.transitionDelay]="'0.25s'">
-                A <span>Koan Capital</span> é uma corretora internacional criada para investidores que buscam
-                excelência operacional e custos otimizados.
+                {{ "painel01-02" | translate}} <span>{{ "painel01-03" | translate}}</span> {{ "painel01-04" | translate}}
             </p>
-            <p class="hero-line" [class.visible]="heroVisible[2]" [style.transitionDelay]="'0.5s'">
-                Conectamos você aos mercados globais com tecnologia de ponta, spreads reduzidos e a segurança que apenas
-                uma operação séria pode oferecer.
-            </p>
+            <p class="hero-line" [class.visible]="heroVisible[2]" [style.transitionDelay]="'0.5s'">{{ "painel01-05" | translate}}</p>
         </h1>
     </section>
 
@@ -22,13 +18,13 @@
         <div class="scrolly-sticky" [ngClass]="'stage-'+stage">
             <div class="scrolly-circles">
                 <div class="scrolly-circle">
-                    <p>Nós da <strong>Koan Capital</strong>, conectamos investidores inteligentes a mercados sem fronteiras.</p>
+                    <p>{{ "painel01-06" | translate}} <strong>{{ "painel01-07" | translate}}</strong>{{ "painel01-08" | translate}}</p>
                 </div>
                 <div class="scrolly-circle">
-                    <p>Oferecemos acesso privilegiado aos principais ativos mundiais.</p>
+                    <p>{{ "painel01-09" | translate}}</p>
                 </div>
                 <div class="scrolly-circle scrolly-circle--accent">
-                    <p>E mostramos como sua estratégia pode gerar resultados consistentes.</p>
+                    <p>{{ "painel01-10" | translate}}</p>
                 </div>
             </div>
         </div>
