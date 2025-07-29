@@ -21,5 +21,25 @@ p span {
 
 img {
     width: 90%;
-    max-width: 800px;
+    max-width: 300px;
+    margin: 100px 0;
+
+    /* garante que o elemento amplie a partir do centro */
+    transform-origin: center center;
+
+    /* animação contínua (alterna expandir e voltar) */
+    animation: pulse 20s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+        /* expande 20% */
+    }
 }
